@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import ttk
 
 
 class MyPomodoroApp(tk.Tk):  # define a class that inherits from tk.Tk()
@@ -14,6 +15,9 @@ class MyPomodoroApp(tk.Tk):  # define a class that inherits from tk.Tk()
         self.title("Pomodoro App v1.0")
         self.geometry("600x600")
 
+        self.notebook = ttk.Notebook(self)
+        self.notebook.pack(fill=tk.BOTH, expand=True)
+
         # FRAME 1 - User inputs minutes pomodoro needs to last #
         frame1 = tk.Frame(self)
         frame1.grid(row=0, column=0, padx=20, pady=20)
@@ -27,7 +31,7 @@ class MyPomodoroApp(tk.Tk):  # define a class that inherits from tk.Tk()
         user_time.pack(side=tk.LEFT, padx=10)
 
         set_time_button = tk.Button(frame1, text="Set Time", font=("Arial", 20), command=lambda: self.set_time())
-        set_time_button.pack(side=tk.LEFT, padx=10)
+        set_time_button.pack(side=tk.LEFT, padx=10, expand=True)
 
         # FRAME 2 - Countdown timer display #
         frame2 = tk.Frame(self)
